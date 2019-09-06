@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TestLoadTFLiteModel</string>
+    <string name="testRes152">TestRes152</string>
+    <string name="testres18">testRes18</string>
+    <string name="testmobnet">testMobNet</string>
+</resources>
