@@ -1,4 +1,4 @@
-最近因为一个研究课题中发现TensorFlow-lite存在一个问题(如下 **现象出发** 小节所述)，所以需要对TensorFlow-lite源码进行研究分析，第一步当然就是要对源码进行编译咯。
+最近因为一个研究课题中发现TensorFlow-lite存在一个小问题(如下 **现象出发** 小节所述)，所以需要对TensorFlow-lite源码进行研究分析，第一步当然就是要对源码进行编译咯。
 # 现象出发
 
 ## 系统信息
@@ -59,6 +59,8 @@ D/TimeCost: Timecost to run model inference: **108 ms**
 Inference ResNet-18 for the third time
 D/TimeCost: Timecost to put values into ByteBuffer: **2 ms**
 D/TimeCost: Timecost to run model inference: **85 ms**
+
+从上述 **Logs from Android 9.0** 可以看出**各个模型在第一次Inference的时候都花了较多时间(相比后两次)，这就是所发现的小问题**
 
 下面是 Load Model 和 Inference 的关键代码 ( **class Classifier** 所在位置如系统信息中Project: TestLoadTFLiteModel 目录图所示)
 
@@ -209,8 +211,7 @@ void run(Object[] inputs, Map<Integer, Object> outputs) {
 
 # 相关配置
 
-为了后期对源码的修改和重新构建后方便引入到测试项目中进行调试，之后将采用 Ubuntu 作为开发环境（参考[https://blog.csdn.net/mingchong2005/article/details/80567511](https://blog.csdn.net/mingchong2005/article/details/80567511)
-）。以 Java 为基础的 Android 开发方式以及 Android Studio 的使用方法此处略过。
+为了后期对源码的修改和重新构建后方便引入到测试项目中进行调试，之后将采用 Ubuntu 作为开发环境（参考[https://blog.csdn.net/mingchong2005/article/details/80567511](https://blog.csdn.net/mingchong2005/article/details/80567511)）。以 Java 为基础的 Android 开发方式以及 Android Studio 的使用方法此处略过。
 
 在 Ubuntu 下安装 Android studio 创建工程连接手机调试一开始会提示 insufficient permissions for device而无法成功，进行如下配置即可
 
@@ -273,7 +274,7 @@ Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 sudo gedit /etc/udev/rules.d/51-android.rules
 ```
 
-加入如下语句
+加入如下语句 (**根据你自己手机的 idVendor 和 idProduct输入**)
 
 ```shell
 SUBSYSTEM=="usb", ATTRS{idVendor}=="0bb4", ATTRS{idProduct}=="0c03",MODE="0666"
