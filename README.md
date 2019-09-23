@@ -11,7 +11,7 @@
 
 - Model: ResNet152, ResNet18  convert from Pytorch and MobileNet-V1 from [tensorflow-lite demo](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/java/demo)
 
-- Project: [TestLoadTFLiteModel]([https://github.com/RoyIronGrey/TestLoadTFLiteModel](https://github.com/RoyIronGrey/TestLoadTFLiteModel))  (点击进入github可下载，里面自带了MobileNet模型，如果想运行ResNet152,和和ResNet18模型，可以联系15665512229@163.com)
+- Project: [TestLoadTFLiteModel]([https://github.com/RoyIronGrey/TestLoadTFLiteModel](https://github.com/RoyIronGrey/TestLoadTFLiteModel))  (里面自带了MobileNet模型，如果想运行ResNet152和和ResNet18模型，可以联系15665512229@163.com, 如果想知道ResNet152和和ResNet18模型的转换可以参考[此处](https://github.com/tensorflow/tensorflow/issues/27807))
 
 ![Project.PNG](https://upload-images.jianshu.io/upload_images/19511012-173304c1a29ef90b.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
