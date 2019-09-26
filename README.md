@@ -230,6 +230,8 @@ export PATH=$PATH:/XXXXXX/android-sdk-linux/tools/
 export PATH=$PATH:/XXXXXX/android-sdk-linux/platform-tools/
 ```
 
+**XXXXXX为android-sdk-linux所在目录的上层目录，Android Studio默认会将android-sdk-linux命名为Sdk**
+
 保存更新
 
 ```shell
